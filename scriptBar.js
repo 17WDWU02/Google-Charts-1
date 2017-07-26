@@ -1,3 +1,4 @@
+//This time we are loading the data through an array which we are creating at the start of the project.
 var array = [
 	{
 	  Year: "2012",
@@ -28,6 +29,7 @@ var array = [
 ]
 
 
+//You will load everything the same way as the previous chart
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -37,6 +39,7 @@ function drawChart(){
 	data.addColumn('number', 'Sales');
 	data.addColumn('number', 'Expenses');
 	data.addColumn('number', 'Profits')
+	//Instead of data.addRows we will be looping over the array and adding just a single row for each iteration
 	for (var i = 0; i < array.length; i++) {
 		data.addRow([
 			array[i].Year, 
@@ -46,6 +49,7 @@ function drawChart(){
 			])
 	};
 
+	//For your options you can also add animations to add abit of 'flare' to your chart
 	var options = {
 		title: 'Company Annual Spend',
 		bars: 'horizontal',
